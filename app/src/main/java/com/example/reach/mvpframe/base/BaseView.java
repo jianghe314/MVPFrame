@@ -5,16 +5,32 @@ package com.example.reach.mvpframe.base;
  *
  * 用于定义一些常用的操作
  */
-public interface BaseView {
+public interface   BaseView<T> {
+
+    //初始化载入数据
+    void loadData();
 
     //数据整体刷新
-    void onRefresh();
+    void onRefresh(T data);
 
     //数据部分调整
-    void onDataChange();
+    void onDataChange(T data);
 
     //参数化页面显示数据
-    void onShowData();
+    void onShowData(T data);
+
+    //耗时操作显示等待
+    void showLoading();
+
+    //隐藏耗时UI
+    void showHide();
+
+    //错误提示
+    void showError(String msg);
+
+    //信息提示
+    void showMsg(String msg);
+
 
 
 }

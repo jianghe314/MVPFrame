@@ -6,12 +6,12 @@ package com.example.reach.mvpframe.base;
  * 用于网络请求回调接口
  */
 
-public interface CallBack {
+public interface CallBack<T> {
 
     /**
      * 网络请求成功
      */
-    void onSuccess();
+    void onSuccess(T data);
 
     /**
      * 网络请求失败
