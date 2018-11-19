@@ -25,6 +25,11 @@ public interface   BaseView<T> {
     //隐藏耗时UI
     void showHide();
 
+
+    /**
+     * 对于信息提示的重要性，可以选用ErrorDialogToast，一般提示用ShortToast即可
+     * @param msg
+     */
     //错误提示
     void showError(String msg);
 
