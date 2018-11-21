@@ -40,7 +40,9 @@ public class WaitDialog extends Dialog {
     }
 
     public void onDestory(){
-        loading.onDestory();
+        if(loading!=null){
+            loading.onDestory();
+        }
     }
 
 

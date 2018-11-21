@@ -1,9 +1,9 @@
 package com.example.reach.mvpframe.base;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.reach.mvpframe.widgets.ErrorDialog;
 import com.example.reach.mvpframe.widgets.WaitDialog;
@@ -23,12 +23,18 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        setContentView(setContentView());
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         waitDialog=new WaitDialog(this);
         errorDialog=new ErrorDialog(this);
+        initView();
     }
+
+
+
+    protected  void initView(){
+        Log.e("执行","--->0");
+    };
 
 
     @Override
@@ -53,12 +59,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     }
 
-    protected abstract int setContentView();
-
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        waitDialog.onDestory();
+        if(null!=waitDialog){
+            waitDialog.onDestory();
+        }
+
     }
 }
